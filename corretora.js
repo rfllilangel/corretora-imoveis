@@ -21,8 +21,35 @@ const criarCorretora = () => {
 
 const lerCorretora = () => {
   corretoras.forEach((corretora, indice) => {
-    console.log(
-      `ID: ${corretora.id}. Corretora: ${corretora.nome}.`
-    );
+    console.log(`ID: ${corretora.id}. Corretora: ${corretora.nome}.`);
   });
+};
+
+const atualizarCorretora = () => {
+  lerCorretora();
+  const id = prompt("Digite o ID da corretora que deseja atualizar: ");
+
+  const novo = modelo(id);
+
+  const indice = corretoras.findIndex((corretora) => corretora.id == id);
+
+  if (novo) {
+    corretoras[indice] = novo;
+    console.log("Residência atualizada com sucesso");
+  }
+};
+
+const deletarCorretora = () => {
+  lerCorretora();
+  const id = prompt("ID da corretora que deseja deletar: ");
+
+  const indice = corretoras.findIndex((corretora) => corretora.id == id);
+  corretoras.splice(indice, 1);
+};
+
+module.exports() = {
+  criarCorretora,
+  lerCorretora,
+  atualizarCorretora,
+  deletarCorretora
 };
