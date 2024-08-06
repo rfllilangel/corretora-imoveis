@@ -1,10 +1,10 @@
 const prompt = require("prompt-sync")();
 let ultimoId = 1;
-const corretoras = [];
+const clientes = [];
 
 
 const modelo = (id = ultimoId++) => {
-  const nome = prompt("Digite o nome da corretora: ");
+  const nome = prompt("Nome: ");
 
   if (nome != "") {
     return {
@@ -18,33 +18,33 @@ const modelo = (id = ultimoId++) => {
 const store = () => {
   const novo = modelo();
   if (novo) {
-    corretoras.push(novo);
-    console.log("Corretora adicionada com sucesso!");
+    clientes.push(novo);
+    console.log("Cliente adicionado com sucesso!");
   } 
 };
 
 const index = () => {
-  if(corretoras.length == 0) {
-    console.log("Nenhuma corretora registrada.")
+  if(clientes.length == 0) {
+    console.log("Nenhum cliente registrado.")
     return false
   }
-  corretoras.forEach(el => console.log(el))
+  clientes.forEach(el => console.log(el))
   return true
 }
-const show = id => corretoras.find(el => el.id == id)
+const show = id => clientes.find(el => el.id == id)
 
 const update = () => {
  if (index())
  {
    const id = parseInt(prompt("ID: "));
 
-   const indice = corretoras.findIndex(el => el.id == id);
+   const indice = clientes.findIndex(el => el.id == id);
 
    if (indice != -1) {
      const novo = modelo(id);
      
      if (novo) {
-      corretoras[indice] = novo;
+      clientes[indice] = novo;
       console.log("Atualizado com sucesso!")
      }
    } else { 
@@ -57,8 +57,8 @@ const destroy = () => {
   if(index()) {
     const id = prompt("ID: ");
    if(id != -1) {
-     const indice = corretoras.findIndex(el => el.id == id);
-     corretoras.splice(indice, 1);
+     const indice = clientes.findIndex(el => el.id == id);
+     clientes.splice(indice, 1);
      console.log("Registro deletado com sucesso!")
     }
   } else {
