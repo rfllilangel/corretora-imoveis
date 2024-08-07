@@ -7,15 +7,21 @@ const modelo = (id = ultimoId++) => {
   const rua = prompt("Rua: ");
   const bairro = prompt("Bairro: ");
   const numero = parseInt(prompt("Número: "));
+  corretoras.index();
   const id_corretora = parseInt(prompt("ID da corretora: "));
 
-  if (rua != "" && bairro != "" && numero > 0 && corretoras.show(id_corretora)) {
+  if (
+    rua != "" &&
+    bairro != "" &&
+    numero > 0 &&
+    corretoras.show(id_corretora)
+  ) {
     return {
       id,
       rua,
       bairro,
       numero,
-      id_corretora
+      id_corretora,
     };
   }
 
@@ -79,3 +85,4 @@ module.exports = {
   destroy,
   show,
 };
+
