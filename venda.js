@@ -7,14 +7,17 @@ const imovel = require("./imovel.js");
 const vendas = [];
 
 const modelo = (id = ultimoId++) => {
+  imovel.index();
   const id_imovel = prompt("ID do imóvel: ");
+  corretoras.index();
   const id_corretora = prompt("ID da corretora: ");
+  corretor.index();
   const id_corretor = prompt("ID do corretor: ");
 
   if (
-    imovel.show(id_imovel) > 0 &&
-    corretoras.show(id_corretora) > 0 &&
-    corretor.show(id_corretor > 0)
+    imovel.show(id_imovel) != "" &&
+    corretoras.show(id_corretora) != "" &&
+    corretor.show(id_corretor != "")
   ) {
     return {
       id,
