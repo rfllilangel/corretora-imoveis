@@ -2,7 +2,8 @@ const prompt = require("prompt-sync")();
 const corretoras = require("./corretora.js");
 const clientes = require("./cliente.js");
 const corretor = require("./corretor.js");
-const vendas = rquire("./venda.js")
+const imovel = require("./imovel.js")
+const vendas = require("./venda.js")
 const menuPrincipal = () => {
   console.log(`GERENCIAMENTO DE CORRETORA DE IMÓVEIS`);
 
